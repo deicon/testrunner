@@ -12,6 +12,9 @@ import org.joda.time.DateTime;
  */
 public interface ExecutionContext {
 	
+	void start(); 
+	void finish();
+	
 	// 
 	DateTime getStartTime();
 	
@@ -19,7 +22,7 @@ public interface ExecutionContext {
 	DateTime getFinishTime();
 	
 	// save variable for later reference
-	void addVariable(String varName, Object value);
+	void setVariable(String varName, Object value);
 	
 	// getVariable vom context
 	Object getVariable(String varName);

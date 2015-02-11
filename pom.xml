@@ -6,6 +6,7 @@
   <packaging>pom</packaging>
   <modules>
   	<module>test-runner-common</module>
+  	<module>test-runner-lifecycle</module>
   </modules>
   <dependencies>
   	<dependency>

@@ -13,10 +13,17 @@ public interface TestTask {
 	void given(TaskData data);
 	
 	// execute Task with current execution Context
-	void when(ExecutionContext context);
+	Object when(ExecutionContext context);
 	
 	// called during verification stage of task
-	void then();
+	boolean then() throws VerifyException;
+	
+	void reset();
+	
+	void failed(String message);
+	void ok(String message);
+	
+	TaskStatus getStatus();
 	
 	TaskData getTaskData();
 }
