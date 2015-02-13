@@ -18,11 +18,13 @@ public interface TestTask {
 	// called during verification stage of task
 	boolean then() throws VerifyException;
 	
+	// resets status of task, keep task data
 	void reset();
 	
 	void failed(String message);
 	void ok(String message);
 	
+	// returns Status of Task
 	TaskStatus getStatus();
 	
 	TaskData getTaskData();

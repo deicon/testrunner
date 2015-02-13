@@ -3,6 +3,7 @@ package de.deicon.testing.runner.lifecycle;
 import java.util.List;
 
 import de.deicon.testing.runner.task.ExecutionContext;
+import de.deicon.testing.runner.task.TaskData;
 import de.deicon.testing.runner.task.TestTask;
 import de.deicon.testing.runner.task.VerifyException;
 import de.deicon.testing.runner.test.TestSuite;
@@ -28,6 +29,10 @@ public class TestSuiteRunner {
 		List<TestTask> tasks = suite.getTasks();
 		
 		for (TestTask testTask : tasks) {
+			
+			TaskData taskData = testTask.getTaskData();
+			testTask.reset();
+			testTask.given(taskData);
 			context.setVariable(CURRENT_TASK, testTask);
 			// execute Task and save result
 			Object result = testTask.when(context);
@@ -48,5 +53,4 @@ public class TestSuiteRunner {
 	private boolean verify(TestTask testTask, Object taskResult) {
 		return true;
 	}
-	
 }
